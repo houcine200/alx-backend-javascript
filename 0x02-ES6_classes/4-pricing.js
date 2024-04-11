@@ -1,7 +1,7 @@
 export default class Pricing {
-  constructor (amount, currency) {
-    this._amount = amount;
-    this._currency = currency;
+  constructor(amount, currency) {
+    this.amount = amount;
+    this.currency = currency;
   }
 
   get amount() {
