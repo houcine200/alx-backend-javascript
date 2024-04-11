@@ -1,26 +1,26 @@
 export default class Pricing {
-  constructor(code, name) {
-    this.code = code;
-    this.name = name;
+  constructor (amount, currency) {
+    this._amount = amount;
+    this._currency = currency;
   }
 
-  get code() {
-    return this._code;
+  get amount() {
+    return this._amount;
   }
 
-  set code(value) {
-    this._code = value;
+  set amount(value) {
+    this._amount = value;
   }
 
-  get name() {
-    return this._name;
+  get currency() {
+    return this._currency;
   }
 
-  set name(value) {
-    this._name = value;
+  set currency(value) {
+    this._currency = value;
   }
 
-  displayFullCurrency() {
+  displayFullPrice() {
     return `${this.amount} ${this.currency.displayFullCurrency()}`;
   }
 
