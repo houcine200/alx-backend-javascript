@@ -1,4 +1,4 @@
 function displayMessage(greet) {
-  console.log(greet)
+  console.log(greet);
 }
-module.exports = displayMessage
+module.exports = displayMessage;
