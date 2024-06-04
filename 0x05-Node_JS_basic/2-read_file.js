@@ -4,7 +4,14 @@ function countStudents(fileName) {
   try {
     const data = fs.readFileSync(fileName, 'utf8');
 
-    const arr = data.split('\n');
+    // Split the file content by lines and filter out any empty lines
+    const arr = data.split('\n').filter(line => line.trim() !== '');
+
+    if (arr.length <= 1) {
+      console.log('Number of students: 0');
+      return;
+    }
+
     const totalStudents = arr.length - 1;
     console.log(`Number of students: ${totalStudents}`);
 
@@ -18,6 +25,10 @@ function countStudents(fileName) {
 
     for (let i = 1; i < arr.length; i += 1) {
       const columns = arr[i].split(',');
+
+      // Skip empty lines and invalid entries
+      if (columns.length <= fieldIndex) continue;
+
       const field = columns[fieldIndex].trim();
       const firstName = columns[0].trim();
 
@@ -29,6 +40,7 @@ function countStudents(fileName) {
         countSWE += 1;
       }
     }
+
     console.log(`Number of students in CS: ${countCS}. List: ${csNames.join(', ')}`);
     console.log(`Number of students in SWE: ${countSWE}. List: ${sweNames.join(', ')}`);
   } catch (err) {
