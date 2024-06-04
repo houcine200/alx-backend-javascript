@@ -37,8 +37,10 @@ function countStudents(fileName) {
 
       console.log(`Number of students in CS: ${countCS}. List: ${csNames.join(', ')}`);
       console.log(`Number of students in SWE: ${countSWE}. List: ${sweNames.join(', ')}`);
-
-      resolve();
+      let result = `Number of students: ${totalStudents}\n`;
+      result += `Number of students in CS: ${countCS}. List: ${csNames.join(', ')}\n`;
+      result += `Number of students in SWE: ${countSWE}. List: ${sweNames.join(', ')}\n`;
+      resolve(result);
     });
   });
 }
