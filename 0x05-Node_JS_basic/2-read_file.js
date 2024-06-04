@@ -1,36 +1,35 @@
 const fs = require('fs');
 
 function countStudents(fileName) {
-   
-    const data = fs.readFileSync(fileName, 'utf8');
-    
-    const arr = data.split('\n');
-    const totalStudents = arr.length - 1;
-    console.log(`Number of students: ${totalStudents}`)
+  const data = fs.readFileSync(fileName, 'utf8');
 
-    const header = arr[0].split(',');
-    const fieldIndex = header.indexOf('field'); 
+  const arr = data.split('\n');
+  const totalStudents = arr.length - 1;
+  console.log(`Number of students: ${totalStudents}`);
 
-    let countCS = 0;
-    let countSWE = 0;
-    let csNames = [];
-    let sweNames = [];
+  const header = arr[0].split(',');
+  const fieldIndex = header.indexOf('field');
 
-    for (let i = 1; i < arr.length; i++) {
-        const columns = arr[i].split(',');
-        const field = columns[fieldIndex].trim();
-        const firstName = columns[0].trim();
+  let countCS = 0;
+  let countSWE = 0;
+  const csNames = [];
+  const sweNames = [];
 
-        if (field === 'CS') {
-            csNames.push(firstName);
-            countCS++;
-        } else if (field === 'SWE') {
-            sweNames.push(firstName);
-            countSWE++;
-        }
+  for (let i = 1; i < arr.length; i += 1) {
+    const columns = arr[i].split(',');
+    const field = columns[fieldIndex].trim();
+    const firstName = columns[0].trim();
+
+    if (field === 'CS') {
+      csNames.push(firstName);
+      countCS += 1;
+    } else if (field === 'SWE') {
+      sweNames.push(firstName);
+      countSWE += 1;
     }
-    console.log(`Number of students in CS: ${countCS}. List: ${csNames.join(', ')}`);
-    console.log(`Number of students in SWE: ${countSWE}. List: ${sweNames.join(', ')}`);
-};
+  }
+  console.log(`Number of students in CS: ${countCS}. List: ${csNames.join(', ')}`);
+  console.log(`Number of students in SWE: ${countSWE}. List: ${sweNames.join(', ')}`);
+}
 
 module.exports = countStudents;
