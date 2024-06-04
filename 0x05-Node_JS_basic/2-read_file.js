@@ -4,8 +4,7 @@ function countStudents(fileName) {
   try {
     const data = fs.readFileSync(fileName, 'utf8');
 
-    // Split the file content by lines and filter out any empty lines
-    const arr = data.split('\n').filter(line => line.trim() !== '');
+    const arr = data.split('\n').filter((line) => line.trim() !== '');
 
     if (arr.length <= 1) {
       console.log('Number of students: 0');
@@ -25,9 +24,6 @@ function countStudents(fileName) {
 
     for (let i = 1; i < arr.length; i += 1) {
       const columns = arr[i].split(',');
-
-      // Skip empty lines and invalid entries
-      if (columns.length <= fieldIndex) continue;
 
       const field = columns[fieldIndex].trim();
       const firstName = columns[0].trim();
