@@ -7,7 +7,6 @@ function countStudents(fileName) {
     const arr = data.split('\n').filter((line) => line.trim() !== '');
 
     if (arr.length <= 1) {
-      console.log('Number of students: 0');
       return;
     }
 
