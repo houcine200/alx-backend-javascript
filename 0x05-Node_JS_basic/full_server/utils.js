@@ -6,9 +6,9 @@ export function readDatabase(filePath) {
       if (err) {
         reject(new Error('Cannot load the database'));
       } else {
-        const lines = data.trim().split('\n').filter(line => line.trim() !== '');
+        const lines = data.trim().split('\n').filter((line) => line.trim() !== '');
         const students = {};
-        lines.forEach(line => {
+        lines.forEach((line) => {
           const [name, field] = line.split(',');
           if (!students[field]) {
             students[field] = [];
