@@ -1,5 +1,3 @@
-// 3-payment.js
-
 const Utils = require('./utils');
 
 function sendPaymentRequestToApi(totalAmount, totalShipping) {
