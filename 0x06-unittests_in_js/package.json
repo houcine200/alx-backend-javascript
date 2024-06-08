@@ -1,5 +1,12 @@
 {
-    "scripts": {
-        "test": "mocha"
-    }
+  "devDependencies": {
+    "mocha": "^10.3.0",
+    "sinon": "^9.0.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "chai": "^4.2.0"
+  }
 }
